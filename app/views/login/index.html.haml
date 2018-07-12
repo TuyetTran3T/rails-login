@@ -1,0 +1,22 @@
+
+%h1 Login Rails
+= form_for(:user, url: login_path) do |form|
+  - if flash[:error]
+    %p
+      = flash[:error]
+  -#- if !@notice.nil?
+  -#  #error_explanation
+  -#    %p
+        = @notice
+    -#%ul
+    -#  - user.errors.full_messages.each do |message|
+    -#    %li= message
+
+  .field
+    = form.label :user_name
+    = form.text_field :user_name, name: :user_name
+  .field
+    = form.label :password
+    = form.text_field :password, name: :password
+  .actions
+    = form.submit 'Login'
